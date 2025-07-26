@@ -14,7 +14,7 @@ interface PasswordChangeDialogProps {
 }
 
 export default function PasswordChangeDialog({ isOpen, onClose }: PasswordChangeDialogProps) {
-  const [currentPassword, setCurrentPassword] = useState('');
+  // const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -49,7 +49,7 @@ export default function PasswordChangeDialog({ isOpen, onClose }: PasswordChange
         setError(error.message);
       } else {
         setSuccess('Password updated successfully!');
-        setCurrentPassword('');
+        // setCurrentPassword('');
         setNewPassword('');
         setConfirmPassword('');
         setTimeout(() => {
