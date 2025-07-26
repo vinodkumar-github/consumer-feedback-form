@@ -17,8 +17,8 @@ import {
   ResponseTrendChart,
   QuestionTypeDoughnut,
   prepareChartData
-} from '../../components/analytics/Charts';
-import { BusinessInsights } from '../../components/analytics/BusinessInsights';
+} from '@/components/analytics/Charts';
+import { BusinessInsights } from '@/components/analytics/BusinessInsights';
 import {
   analyzeUserResponses,
   generateProductInsights,
