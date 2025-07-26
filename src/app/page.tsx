@@ -681,12 +681,13 @@ export default function QuizPage() {
                 <div className="text-center mb-8 ">
                     <div className="flex justify-between items-center mb-6 ">
                         <div></div>
-                        <h1 className="text-8xl font-bold text-[#254569] tracking-tight p-12">
+                        <h1 className="text-3xl font-bold text-[#254569] tracking-tight p-20" style={{fontSize: '2rem !important',paddingBottom:"2rem", lineHeight: '1.2 !important',fontWeight:'bolder', color: '#254569 !important'}}>
                             {json.title}
                         </h1>
                         <a
                             href="/analytics"
-                            className="text-base font-large text-[#254569] hover:text-[#C1A06E] transition-colors duration-200 px-3 py-2 rounded-lg hover:bg-amber-50"
+                            className="text-xl font-semibold text-[#254569] hover:text-[#C1A06E] transition-colors duration-200 px-4 py-3 rounded-lg hover:bg-amber-50"
+                            style={{fontSize: '1.1rem !important', fontWeight: '600 !important'}}
                         >
                             View Analytics →
                         </a>
