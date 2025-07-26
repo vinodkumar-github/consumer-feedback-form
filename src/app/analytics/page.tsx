@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { supabase } from '@/lib/supabase';
 import { getQuizSubmissions } from '@/lib/quizService';
 import PasswordChangeDialog from '../../components/PasswordChangeDialog';
@@ -49,13 +49,13 @@ export default function AnalyticsPage() {
   const [businessInsights, setBusinessInsights] = useState<BusinessInsight[]>([]);
   const [productInsights, setProductInsights] = useState<ProductInsight[]>([]);
   const [salesOpportunities, setSalesOpportunities] = useState<SalesOpportunity[]>([]);
-  const checkAuth = async () => {
+  const checkAuth = useCallback(async () => {
     const { data: { session } } = await supabase.auth.getSession();
     setIsLoggedIn(!!session);
     if (session) {
       await loadAnalytics();
     }
-  };
+  },[]);
   useEffect(() => {
     checkAuth();
   }, [checkAuth]);
