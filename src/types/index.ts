@@ -1,6 +1,28 @@
 // Comprehensive TypeScript types for the Consumer Feedback Form application
 
 // Quiz and Form Types
+export interface QuizChoice {
+  value: string;
+  text: string;
+}
+
+export interface QuizElement {
+  type: 'checkbox' | 'rating' | 'dropdown' | 'tagbox' | 'text' | 'comment';
+  name: string;
+  title: string;
+  isRequired?: boolean;
+  choices?: QuizChoice[];
+  rateValues?: QuizChoice[];
+  inputType?: string;
+  placeholder?: string;
+  showSelectAllItem?: boolean;
+  selectAllText?: string;
+  showNoneItem?: boolean;
+  noneText?: string;
+  searchEnabled?: boolean;
+  hideSelectedItems?: boolean;
+}
+
 export interface QuizQuestion {
   id: string;
   type: 'checkbox' | 'rating' | 'dropdown' | 'tagbox' | 'text' | 'comment';
@@ -185,7 +207,7 @@ export interface ValidationResult {
 
 // Component Props Types
 export interface ChartProps {
-  data: any[];
+  data: unknown[];
   title?: string;
 }
 
@@ -208,5 +230,5 @@ export interface AuthState {
 export interface AppError {
   message: string;
   code?: string;
-  details?: any;
+  details?: unknown;
 } 

@@ -1,5 +1,5 @@
 import { supabase } from './supabase'
-import { QuizSubmission, QuizResponse, QuizSubmissionsResponse } from '@/types';
+import { QuizSubmission, QuizResponse } from '@/types';
 
 export const submitQuizData = async (formData: Record<string, string | string[] | number>, quizTitle: string, totalPages: number, actualCompletedPages?: number): Promise<QuizResponse> => {
   try {

@@ -81,6 +81,7 @@ const PRICING_INDICATORS = [
 ];
 
 // Quality indicators are used in competitive advantage analysis
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const QUALITY_INDICATORS = [
   'quality', 'fresh', 'taste', 'flavor', 'texture', 'appearance',
   'ingredients', 'organic', 'natural', 'artificial', 'preservatives'

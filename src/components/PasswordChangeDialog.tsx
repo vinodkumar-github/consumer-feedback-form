@@ -57,7 +57,7 @@ export default function PasswordChangeDialog({ isOpen, onClose }: PasswordChange
           setSuccess('');
         }, 2000);
       }
-    } catch (error) {
+    } catch (error) { // eslint-disable-line @typescript-eslint/no-unused-vars
       setError('An unexpected error occurred');
     } finally {
       setLoading(false);

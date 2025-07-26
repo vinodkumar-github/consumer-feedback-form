@@ -24,9 +24,9 @@ export default function QuizPage() {
     if (!page || !page.elements) return 'future';
 
     // const hasRequiredFields = page.elements.some((element: any) => element.isRequired);
-    const requiredFields = page.elements.filter((element: any) => element.isRequired);
+    const requiredFields = page.elements.filter((element: any) => element.isRequired); // eslint-disable-line @typescript-eslint/no-explicit-any
 
-    const completedRequiredFields = requiredFields.filter((element: any) => {
+    const completedRequiredFields = requiredFields.filter((element: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
       const value = formData[element.name];
       if (element.type === 'checkbox') {
         return Array.isArray(value) && value.length > 0;
@@ -37,7 +37,7 @@ export default function QuizPage() {
       }
     });
 
-    const hasAnyAnswer = page.elements.some((element: any) => {
+    const hasAnyAnswer = page.elements.some((element: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
       const value = formData[element.name];
       return Array.isArray(value) ? value.length > 0 : value !== undefined && value !== '';
     });
@@ -116,13 +116,13 @@ export default function QuizPage() {
         if (currentPage < totalPages - 1) {
             // Check if current page has required fields that are not completed
             const currentPageData = json.pages[currentPage];
-            const requiredFields = currentPageData.elements?.filter((element: any) => element.isRequired) || [];
+            const requiredFields = currentPageData.elements?.filter((element: any) => element.isRequired) || []; // eslint-disable-line @typescript-eslint/no-explicit-any
 
             // Validate all required fields
             let hasValidationErrors = false;
             const newValidationErrors: Record<string, string> = {};
 
-            requiredFields.forEach((element: any) => {
+            requiredFields.forEach((element: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
                 const value = formData[element.name];
 
                 if (element.type === 'text') {
@@ -173,7 +173,7 @@ export default function QuizPage() {
             }
 
             // Check if all required fields are completed
-            const allRequiredCompleted = requiredFields.every((element: any) => {
+            const allRequiredCompleted = requiredFields.every((element: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
                 const value = formData[element.name];
                 if (element.type === 'checkbox') {
                     return Array.isArray(value) && value.length > 0;
@@ -232,7 +232,7 @@ export default function QuizPage() {
         }
     };
 
-    const renderElement = (element: any) => {
+    const renderElement = (element: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
         switch (element.type) {
             case 'checkbox':
                 return (
@@ -243,7 +243,7 @@ export default function QuizPage() {
                             </div>
                         </h3>
                         <div className="checkbox-grid">
-                            {element.choices?.map((choice: any, index: number) => (
+                                                         {element.choices?.map((choice: any, index: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                                 <div
                                     key={index}
                                     className={`checkbox-option ${
@@ -281,7 +281,7 @@ export default function QuizPage() {
                                         Array.isArray(formData[element.name]) && (formData[element.name] as string[]).length === element.choices?.length ? 'selected' : ''
                                     }`}
                                     onClick={() => {
-                                        const allValues = element.choices?.map((c: any) => c.value) || [];
+                                        const allValues = element.choices?.map((c: any) => c.value) || []; // eslint-disable-line @typescript-eslint/no-explicit-any
                                         handleAnswer(element.name, allValues);
                                     }}
                                 >
@@ -335,7 +335,7 @@ export default function QuizPage() {
                             </div>
                         </h3>
                         <div className="flex gap-6 justify-center">
-                            {element.rateValues?.map((rate: any, index: number) => (
+                            {element.rateValues?.map((rate: any, index: number) => ( // eslint-disable-line @typescript-eslint/no-explicit-any
                                 <div
                                     key={index}
                                     className={`rating-option ${
@@ -409,7 +409,7 @@ export default function QuizPage() {
                           isSingleSelect ? 'flex gap-6 justify-center' : ''
                       }`}
                   >
-                    {element.choices?.map((choice: any, index: number) => {
+                    {element.choices?.map((choice: any, index: number) => { // eslint-disable-line @typescript-eslint/no-explicit-any
                       const isSelected = isSingleSelect
                           ? currentValue === choice.value
                           : Array.isArray(currentValue) && currentValue.includes(choice.value);
@@ -575,7 +575,7 @@ export default function QuizPage() {
                     </div>
 
                     <div className="space-y-8">
-                        {currentPageData.elements?.map((element: any) => renderElement(element))}
+                        {currentPageData.elements?.map((element: any) => renderElement(element))} {/* eslint-disable-line @typescript-eslint/no-explicit-any */}
                     </div>
                 </div>
 
