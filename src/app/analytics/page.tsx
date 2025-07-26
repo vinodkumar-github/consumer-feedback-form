@@ -34,7 +34,8 @@ import {
 import type { QuestionAnalysis, TopResponse } from '@/types';
 import '../globals.css';
 
-
+// Prevent static generation - this page should only be rendered on the client
+export const dynamic = 'force-dynamic';
 
 export default function AnalyticsPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
