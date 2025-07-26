@@ -384,26 +384,44 @@ export const json = {
       ]
     },
     {
-      "name": "Lucky Draw Entry",
-      "title": "Lucky Draw Entry",
-      "description": "Please provide your details below to enter our lucky draw. By doing so, you consent to the collection of your personal data, which we will use responsibly and solely for the purpose of this draw.",
+      "name": "contact_info",
+      "title": "Contact Information",
+      "description": "Please provide your details below to enter our lucky draw. Your information will be kept confidential and used only for this purpose.",
       "elements": [
         {
-          "type": "text",
-          "name": "Please provide your details below to enter our lucky draw.",
-          "title": "Name"
+          "type": "checkbox",
+          "name": "opt_out",
+          "title": "I prefer not to provide personal details",
+          "isRequired": false,
+          "choices": [
+            {
+              "value": "opt_out",
+              "text": "Skip personal details and submit feedback anonymously"
+            }
+          ]
         },
         {
           "type": "text",
-          "name": "Phone",
-          "title": "Phone ",
-          "inputType": "tel"
+          "name": "name",
+          "title": "Full Name",
+          "isRequired": true,
+          "placeholder": "Enter your full name"
         },
         {
           "type": "text",
-          "name": "question11",
-          "title": "Email",
-          "inputType": "email"
+          "name": "email",
+          "title": "Email Address",
+          "isRequired": true,
+          "inputType": "email",
+          "placeholder": "Enter your email address"
+        },
+        {
+          "type": "text",
+          "name": "phone",
+          "title": "Phone Number",
+          "isRequired": true,
+          "inputType": "tel",
+          "placeholder": "Enter your phone number"
         }
       ]
     }

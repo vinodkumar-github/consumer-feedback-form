@@ -1209,3 +1209,499 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Contact Information Form Styling */
+.contact-form {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+  border-radius: 24px;
+  padding: 3rem;
+  box-shadow: 
+    0 20px 25px -5px rgba(37, 69, 105, 0.1),
+    0 10px 10px -5px rgba(37, 69, 105, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--golden-primary) 0%, var(--blue-primary) 50%, var(--golden-primary) 100%);
+  border-radius: 24px 24px 0 0;
+}
+
+.contact-form::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(193, 160, 110, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.contact-field {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.contact-field:last-child {
+  margin-bottom: 0;
+}
+
+.contact-field label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--blue-primary);
+  margin-bottom: 0.75rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.contact-field label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--golden-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px rgba(193, 160, 110, 0.2);
+}
+
+.contact-input {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  border: 2px solid rgba(37, 69, 105, 0.1);
+  border-radius: 16px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-primary);
+  font-family: inherit;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.contact-input:focus {
+  outline: none;
+  border-color: var(--blue-primary);
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    0 0 0 4px rgba(37, 69, 105, 0.1),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+}
+
+.contact-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.contact-input.error {
+  border-color: #ef4444;
+  background: rgba(254, 242, 242, 0.9);
+  box-shadow: 
+    0 0 0 4px rgba(239, 68, 68, 0.1),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.contact-input.error:focus {
+  border-color: #dc2626;
+  box-shadow: 
+    0 0 0 4px rgba(239, 68, 68, 0.2),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-input.success {
+  border-color: #10b981;
+  background: rgba(240, 253, 244, 0.9);
+  box-shadow: 
+    0 0 0 4px rgba(16, 185, 129, 0.1),
+    0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.contact-input.success:focus {
+  border-color: #059669;
+  box-shadow: 
+    0 0 0 4px rgba(16, 185, 129, 0.2),
+    0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.contact-field-icon {
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.contact-input:focus + .contact-field-icon {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.contact-input.success + .contact-field-icon {
+  opacity: 1;
+  color: #10b981;
+}
+
+.contact-input.error + .contact-field-icon {
+  opacity: 1;
+  color: #ef4444;
+}
+
+.contact-validation-message {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: slideIn 0.3s ease-out;
+}
+
+.contact-validation-message.error {
+  background: rgba(254, 242, 242, 0.9);
+  color: #dc2626;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.contact-validation-message.success {
+  background: rgba(240, 253, 244, 0.9);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.contact-validation-message::before {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.contact-validation-message.error::before {
+  content: '⚠️';
+}
+
+.contact-validation-message.success::before {
+  content: '✓';
+}
+
+.contact-form-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.contact-form-header h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--blue-primary);
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--golden-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contact-form-header p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 16px;
+  border: 1px solid rgba(193, 160, 110, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.contact-form-footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(37, 69, 105, 0.1);
+}
+
+.contact-form-footer p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.contact-form-footer .privacy-note {
+  background: rgba(193, 160, 110, 0.1);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(193, 160, 110, 0.2);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+/* Responsive Design for Contact Form */
+@media (max-width: 768px) {
+  .contact-form {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    margin: 0 1rem;
+  }
+  
+  .contact-form-header h2 {
+    font-size: 2rem;
+  }
+  
+  .contact-form-header p {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+  
+  .contact-input {
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+  }
+  
+  .contact-field label {
+    font-size: 1rem;
+    padding-left: 1.25rem;
+  }
+  
+  .contact-field label::before {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+  
+  .contact-form-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .contact-input {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Enhanced Submit Button for Contact Form */
+.btn-submit-contact {
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--golden-primary) 100%);
+  color: white;
+  border: none;
+  padding: 1.25rem 3rem;
+  border-radius: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 25px -5px rgba(37, 69, 105, 0.3),
+    0 4px 10px -2px rgba(37, 69, 105, 0.2);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-submit-contact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+
+.btn-submit-contact:hover::before {
+  left: 100%;
+}
+
+.btn-submit-contact:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    0 20px 40px -10px rgba(37, 69, 105, 0.4),
+    0 8px 20px -4px rgba(37, 69, 105, 0.3);
+}
+
+.btn-submit-contact:active {
+  transform: translateY(-1px);
+  box-shadow: 
+    0 15px 30px -8px rgba(37, 69, 105, 0.35),
+    0 6px 15px -3px rgba(37, 69, 105, 0.25);
+}
+
+.btn-submit-contact:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-submit-contact:disabled:hover {
+  transform: none;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 768px) {
+  .btn-submit-contact {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-submit-contact {
+    padding: 0.875rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+/* Opt-out Checkbox Styling */
+.opt-out-checkbox {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(193, 160, 110, 0.3);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.opt-out-checkbox::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--golden-primary) 0%, var(--blue-primary) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.opt-out-checkbox:hover {
+  border-color: var(--golden-primary);
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(193, 160, 110, 0.2);
+}
+
+.opt-out-checkbox:hover::before {
+  opacity: 1;
+}
+
+.opt-out-checkbox.selected {
+  border-color: var(--golden-primary);
+  background: rgba(193, 160, 110, 0.05);
+  box-shadow: 0 8px 25px -5px rgba(193, 160, 110, 0.3);
+}
+
+.opt-out-checkbox.selected::before {
+  opacity: 1;
+}
+
+.opt-out-checkbox .checkbox-option {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--blue-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.opt-out-checkbox .checkbox-option:hover {
+  background: transparent;
+  transform: none;
+}
+
+.opt-out-checkbox .checkbox-option.selected {
+  background: transparent;
+  color: var(--golden-primary);
+}
+
+.opt-out-checkbox .checkbox-option.selected::before {
+  background: var(--golden-primary);
+  border-color: var(--golden-primary);
+}
+
+.opt-out-checkbox .checkbox-option input[type="checkbox"] {
+  margin-right: 0.75rem;
+  transform: scale(1.2);
+}
+
+.opt-out-checkbox .checkbox-option input[type="checkbox"]:checked {
+  accent-color: var(--golden-primary);
+}
+
+.opt-out-checkbox .privacy-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 24px;
+  height: 24px;
+  color: var(--golden-primary);
+  opacity: 0.7;
+}
+
+.opt-out-checkbox:hover .privacy-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .opt-out-checkbox {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .opt-out-checkbox .checkbox-option {
+    font-size: 1rem;
+  }
+  
+  .opt-out-checkbox .privacy-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
