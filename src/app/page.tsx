@@ -23,7 +23,7 @@ export default function QuizPage() {
     const page = json.pages[pageIndex];
     if (!page || !page.elements) return 'future';
 
-    const hasRequiredFields = page.elements.some((element: any) => element.isRequired);
+    // const hasRequiredFields = page.elements.some((element: any) => element.isRequired);
     const requiredFields = page.elements.filter((element: any) => element.isRequired);
 
     const completedRequiredFields = requiredFields.filter((element: any) => {
